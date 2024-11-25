@@ -2,7 +2,7 @@ import { Cocktail } from "@/lib/interfaces/cocktail";
 import React from "react";
 
 type paginationProps = {
-  items: Cocktail[]|[];
+  items: Cocktail[] | [];
   currentPage: number;
   totalPages: number;
   handlePageChange: (page: number) => void;
@@ -16,7 +16,7 @@ const Pagination = ({
 }: paginationProps) => {
   return (
     <>
-      {items.length > 0&& Array.isArray(items) && (
+      {items.length > 0 && Array.isArray(items) && (
         <div className="flex justify-center space-x-2 mt-4">
           <button
             onClick={() => handlePageChange(currentPage - 1)}

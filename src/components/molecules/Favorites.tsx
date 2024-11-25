@@ -38,7 +38,7 @@ const Favorites = ({
         {favorites.length === 0 ? (
           <NotFound />
         ) : (
-          paginatedFavorites.map((cocktail,index) => (
+          paginatedFavorites.map((cocktail, index) => (
             <CocktailCard item={cocktail} key={index}>
               <Button
                 buttonText="Remove from Favorites"
