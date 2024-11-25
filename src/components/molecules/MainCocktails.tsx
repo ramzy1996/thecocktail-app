@@ -8,7 +8,7 @@ import CocktailCard from "./CocktailCard";
 
 type mainCocktailsProps = {
   isLoading: boolean;
-  paginatedCocktails: Cocktail[];
+  itemsPerPage: number;
   favorites: Cocktail[];
   setFavorites: (value: SetStateAction<Cocktail[]>) => void;
   handlePageChange: (page: number) => void;
@@ -19,19 +19,23 @@ type mainCocktailsProps = {
 
 const MainCocktails = ({
   isLoading,
-  paginatedCocktails,
   favorites,
   setFavorites,
   handlePageChange,
   cocktails,
   currentPage,
   totalPages,
+  itemsPerPage,
 }: mainCocktailsProps) => {
   const isFavorite = (cocktailId: string) =>
     favorites.some((cocktail) => cocktail.idDrink === cocktailId);
   const addToFavorites = (cocktail: Cocktail) => {
     setFavorites([...favorites, cocktail]);
   };
+  const paginatedCocktails = cocktails.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
   return (
     <>
       {isLoading ? (

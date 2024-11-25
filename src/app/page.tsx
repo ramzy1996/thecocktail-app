@@ -81,10 +81,6 @@ const Home = () => {
     }
   };
 
-  const paginatedCocktails = cocktails.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
   const totalPages = Math.ceil(cocktails.length / itemsPerPage);
 
   const handlePageChange = (page: number) => {
@@ -113,7 +109,7 @@ const Home = () => {
         favorites={favorites}
         handlePageChange={handlePageChange}
         isLoading={isLoading}
-        paginatedCocktails={paginatedCocktails}
+        itemsPerPage={itemsPerPage}
         setFavorites={setFavorites}
         totalPages={totalPages}
       />
