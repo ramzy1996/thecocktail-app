@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import Button from "../atoms/Button";
 
 type searchProps = {
   searchQuery: string;
@@ -15,12 +16,13 @@ const Search = ({ searchQuery, setSearchQuery, handleSearch }: searchProps) => {
         placeholder="Search cocktails"
         className="flex-grow border p-2 rounded-md text-sm sm:text-base bg-black focus:ring-2 focus:ring-blue-500"
       />
-      <button
+
+      <Button
+        buttonText="Search"
         onClick={handleSearch}
-        className="p-2 bg-green-500 text-white rounded-md text-sm sm:text-base"
-      >
-        Search
-      </button>
+        isDisabled={!searchQuery}
+        className="bg-green-500"
+      />
     </div>
   );
 };
